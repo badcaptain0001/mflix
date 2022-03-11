@@ -1,22 +1,38 @@
 import clientPromise from "../lib/mongodb";
-
 export default function Home({ users }) {
+
+
+
+
+
+
+
+
   return (
+    <> <style type="text/css" id="maincss" dangerouslySetInnerHTML={{
+      __html: `
+      .userName{
+        color: red;
+      }
+      `}}>
+
+
+      </style>
     <div className="container">
-      <div>
-        {users.slice(0,50).map((user, index) => {
-          return (
-            <div className="card" key={index}>
-              <h2>{user.name}</h2>
-              <p>{user.email}</p>
-              <p>{user.movie_id}</p>
-              <p>{user.text}</p>
-              <p>{user.date}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+        <div>
+          {users.map((user, index) => {
+            return (
+              <div className="card" key={index}>
+                <h2 className="userName">{user.name}</h2>
+                <p>{user.email}</p>
+                <p>{user.movie_id}</p>
+                <p>{user.text}</p>
+                <p>{user.date}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div></>
   );
 }
 
